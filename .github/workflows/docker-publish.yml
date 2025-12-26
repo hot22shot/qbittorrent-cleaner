@@ -29,6 +29,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/qbit-cleaner:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/qbit-cleaner:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/qbit-cleaner:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_USERNAME }}/qbittorrent-cleaner:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/qbittorrent-cleaner:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/qbittorrent-cleaner:buildcache,mode=max
