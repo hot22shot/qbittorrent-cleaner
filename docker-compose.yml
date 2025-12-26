@@ -1,7 +1,7 @@
 services:
   qbittorrent-cleaner:
-    build: .
-    container_name:   qbittorrent-cleaner:
+    image: hot22shot/qbittorrent-cleaner:latest
+    container_name: qbittorrent-cleaner
     restart: unless-stopped
     environment:
       - QBIT_HOST=http://qbittorrent:8080
