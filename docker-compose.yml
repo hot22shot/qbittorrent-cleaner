@@ -1,8 +1,8 @@
 services:
-  qbit-cleaner:
+  qbittorrent-cleaner:
     # Use 'build: .' if running locally, or your image name if on Docker Hub
     build: . 
-    container_name: qbit_cleaner
+    container_name: qbittorrent-cleaner
     restart: unless-stopped
     environment:
       - QBIT_HOST=http://qbittorrent:8080
