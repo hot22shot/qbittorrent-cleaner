@@ -1,4 +1,5 @@
-# config.yaml
+# config.yaml.example
+# modify and rename it to config.yaml
 
 settings:
   qbit_host: "http://qbittorrent:8080"
