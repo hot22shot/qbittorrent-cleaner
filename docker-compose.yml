@@ -1,0 +1,26 @@
+services:
+  qbit-cleaner:
+    # Use 'build: .' if running locally, or your image name if on Docker Hub
+    build: . 
+    container_name: qbit_cleaner
+    restart: unless-stopped
+    environment:
+      - QBIT_HOST=http://qbittorrent:8080
+      - QBIT_USER=admin
+      - QBIT_PASS=adminadmin
+      
+      # --- THE RULES ---
+      # Format: Category|Seconds|Ratio|Bytes
+      # Use -1 to ignore a metric.
+      # Separate distinct categories with a comma.
+      
+      # Example logic below:
+      # 1. 'radarr' (Movies): Keep for 7 days (604800s), OR until Ratio 2.0 is hit.
+      # 2. 'sonarr' (TV): Keep for 2 days (172800s), ignore ratio/volume (delete purely on time).
+      # 3. 'music': Keep for 0 seconds (delete immediately) once Ratio hits 5.0.
+      
+      - PURGE_RULES=radarr|604800|2.0|-1, sonarr|172800|-1|-1, music|0|5.0|-1
+      
+      - DELETE_FILES=true
+      - CHECK_INTERVAL=3600
+      - DRY_RUN=true
