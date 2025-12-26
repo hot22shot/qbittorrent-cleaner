@@ -29,7 +29,6 @@ jobs:
         with:
           context: .
           push: true
-          # Replace 'yourusername' with your actual Docker Hub username in the line below logic (or rely on secrets)
           tags: ${{ secrets.DOCKER_USERNAME }}/qbit-cleaner:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/qbit-cleaner:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/qbit-cleaner:buildcache,mode=max
